@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker build -t balsa823/complex-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true balsa823/complex-test npm test
+      - run: docker run -e CI=true balsa823/complex-test npm test -- --coverage
 
       
