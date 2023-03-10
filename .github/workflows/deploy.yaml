@@ -1,0 +1,15 @@
+name: Deploy Frontend
+on:
+  push:
+    branches:
+      - master # check your repo, your default branch might be master!
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t balsa/complex-test -f Dockerfile.dev .
+      - run: docker run -e CI=true balsa/complex-test npm test
+
+      
